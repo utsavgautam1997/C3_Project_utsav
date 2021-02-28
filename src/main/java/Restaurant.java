@@ -56,7 +56,16 @@ public class Restaurant implements org.junit.jupiter.api.function.Executable {
         menu.add(newItem);
     }
 
-    
+    public int getTotalValue(List<String> itemName)
+    {
+        int value=0;
+        for(String name: itemName)
+        {
+            Item item=findItemByName(name);
+            value=value + item.getPrice();
+        }
+        return  value;
+    }
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
